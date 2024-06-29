@@ -13,11 +13,12 @@ jobs:
         run: |
           mkdir ./download
           wget -O ./download/PixelOS_sweet-14.0-20240628-1702.zip "https://master.dl.sourceforge.net/project/pixelos-releases/fourteen/sweet/PixelOS_sweet-14.0-20240628-1702.zip?viasf=1"
+          zip -s 1.9g -r "./release/PixelOS_sweet" "./download/PixelOS_sweet-14.0-20240628-1702.zip"
       - name: Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: |
-            ./download/*.zip
+            ./release/*
           name: Download
           tag: all
           allowUpdates: true
